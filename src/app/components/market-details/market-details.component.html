@@ -1,0 +1,203 @@
+<app-base>  
+    <!-- fxLayout="row" -->
+    <section class="market-details"
+    fxFlex="1 1 100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start">
+
+        <!-- fxFlex="1 1 53%" -->
+        <div class="market-details__container"
+        fxFlex="1 1 750px"
+        fxFlex.lt-md="1 1 100"
+        fxLayout="row wrap"
+        fxLayoutGap.gt-xs="6%">
+
+            <div class="market-details__left"
+            fxFlex="1 1 45"
+            fxFlex.lt-sm="1 1 100">
+
+                <ngx-slick-carousel class="carousel-main" 
+                #slickModal1="slick-carousel" 
+                [config]="slideConfig1">                        
+                    <div ngxSlickItem *ngFor="let slide of slides; let i = index">
+                        <img [src]="slide.img" [alt]="item.title" class="big-img carousel-main__img" [attr.data-index]="i">
+                    </div>
+                </ngx-slick-carousel>
+
+                <ngx-slick-carousel class="carousel-nav" 
+                #slickModal2="slick-carousel" 
+                [config]="slideConfig2"
+                (beforeChange)="beforeChangeNav($event)">
+                    <div ngxSlickItem *ngFor="let slide of slides; let i = index">
+                        <img [src]="slide.img" [alt]="item.title" class="small-img carousel-nav__img" [attr.data-index]="i">
+                    </div>
+                </ngx-slick-carousel> 
+            </div>    
+            
+            <div class="market-details__right"
+            fxFlex="1 1 48"
+            fxFlex.lt-sm="1 1 100">
+               <div class="market-details__date-id">
+                   <span class="market-details__date"
+                   fxFlex="1 1 50"
+                   fxLayoutAlign="start center">01.09.2020</span>
+                   <span class="market-details__id"
+                   fxFlex="1 1 50"
+                   fxLayoutAlign="end center">#{{item.id}}</span>
+               </div>
+               <div class="market-details__title">
+                    {{item.title}}   
+                </div>
+                <div class="market-details__description">
+                    {{item.description}} 
+                </div>
+                <div class="market-details__condition-price">
+                    <div class="market-details__condition"
+                    fxFlex="1 1 50"
+                    fxLayoutAlign="start center" > <!-- fxLayout="row wrap" -->
+                        <span
+                        fxFlex="1 1 100">Состояние: </span>
+                        <span
+                        fxFlex="1 1 100">{{item.condition}}</span>                
+                    </div>
+                    <span class="market-details__price"
+                    fxFlex="1 1 50"
+                    fxLayoutAlign="end center">{{item.price}} грн.</span>                   
+                </div>
+                <div class="market-details__payment-delivery"
+                fxLayout="row wrap">
+                    <span class="market-details__icon market-details__icon--payment"
+                    fxFlex="1 1 9"
+                    fxLayoutAlign="start center">
+                        <i class="icon-payment"></i>
+                    </span>
+                    <!-- class="market-details__payment" -->
+                    <div class="market-details__payment"
+                    fxFlex="1 1 41"
+                    fxFlex.sm="1 1 90"
+                    fxLayoutAlign="start center" 
+                    fxLayout="row wrap">
+                        <span class="market-details__info-title"
+                        fxFlex="1 1 100">Варианты оплаты:</span>
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-description">{{item.payment}}</span>                
+                    </div>
+                    <span class="market-details__icon"
+                    fxFlex="1 1 9"
+                    fxLayoutAlign="start center">
+                        <i class="icon-delivery"></i></span>
+                    <!-- class="market-details__delivery" -->
+                    <div 
+                    fxFlex="1 1 41"
+                    fxFlex.sm="1 1 90"
+                    fxLayoutAlign="end center"
+                    fxLayout="row wrap">
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-title">Варианты доставки:</span>
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-description">{{item.delivery}}</span>                
+                    </div>
+                   
+                </div>
+                <div class="market-details__provider-location"
+                >
+                    <span class="market-details__icon"
+                    fxFlex="1 1 9"
+                    fxLayoutAlign="start center">
+                        <i class="icon-user-fill"></i></span>
+                    <!-- class="market-details__provider" -->
+                    <div 
+                    fxFlex="1 1 41"
+                    
+                    fxLayoutAlign="start center" 
+                    fxLayout="row wrap">
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-title">Поставщик:</span>
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-description">{{item.provider}}</span>                
+                    </div>
+                    <span class="market-details__icon"
+                    fxFlex="1 1 9"
+                    fxLayoutAlign="start center">
+                        <i class="icon-map-pick"></i></span>
+                    <!-- class="market-details__location" -->    
+                    <div 
+                    fxFlex="1 1 41"
+                    
+                    fxLayoutAlign="end center"
+                    fxLayout="row wrap">
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-title">{{item.location1}}</span>
+                        <span
+                        fxFlex="1 1 100" class="market-details__info-description">{{item.location2}}</span>                
+                    </div>
+                   
+                </div>
+                <!-- fxLayoutGap.="10%" -->
+                <div class="market-details__buy"
+                fxLayout="row wrap"
+                fxLayoutAlign="start center">
+                    <!-- fxFlex.lt-md="1 1 100" -->
+                    <div 
+                    fxFlex="1 1 50"
+                    fxFlex.lt-md="1 1 70"
+                    fxLayoutAlign="start center">
+                        <button class="market-details__buy-btn">
+                            Купить
+                        </button>
+                    </div>
+
+                    <!--  fxLayout.lt-md="column" 
+                    fxLayoutAlign.lt-md="space-between flex-start" fxLayoutAlign="space-between none"-->
+                    <div class="single__body-info"
+                    fxFlex="1 1 50"
+                    fxFlex.lt-md="1 1 100"
+                    fxLayout="row" 
+                    fxLayoutAlign.lt-md="start none"
+                    fxLayoutAlign.gt-sm="end none"
+                    >
+                        <ul class="single__icon-list" fxLayout="row">
+                        <li class="single__icon-item">
+                            <i class="icon-heart"></i>
+                            <div class="single__icon-text">
+                                {{item.likesCount}}
+                            </div>
+                        </li>
+                        <li class="single__icon-item">
+                            <i class="icon-eye"></i>
+                            <div class="single__icon-text">
+                                {{item.viewsCount}}
+                            </div>
+                        </li>
+                        <li class="single__icon-item">
+                            <div class="single__icon--heart">
+                                <i class="icon-share"></i>
+                            </div>
+
+                        </li>
+                        </ul>
+                    </div>
+    
+
+                </div>
+            </div>
+        </div>
+
+        <div class="popup" *ngIf="!isPopupHidden" 
+        #popup
+        fxFlex="1 1 100"
+        fxHide.lt-sm="true">
+            <div class="popup__container">
+                <ngx-slick-carousel class="carousel-popup" 
+                #slickModal3="slick-carousel"
+                [config]="slideConfig3"
+                (beforeChange)="beforeChangePopup($event)">
+                <div ngxSlickItem *ngFor="let slide of slides; let i = index"  class="carousel-popup__slide">
+                    <img [src]="slide.img" [alt]="item.title" class="carousel-popup__img" [attr.data-index]="i">
+                </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>       
+        
+    </section>
+</app-base>

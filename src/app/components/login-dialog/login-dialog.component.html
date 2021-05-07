@@ -1,0 +1,169 @@
+
+<div class="dialog-base">
+
+    <div class="header-area"
+        fxLayoutAlign="center stretch">
+        <span *ngIf="isLoginError || isSignupError" class="alert alert-danger error-content">{{isLoginError ? 'Ошибка при логине' : 'Ошибка создания акаунта'}}</span>
+    </div>
+
+    <div class="login-signup-area"
+        fxLayoutAlign="baseline center">
+
+        <mat-tab-group mat-stretch-tabs  animationDuration="150" (selectedIndexChange)="setCurrentTabIndex($event)">
+
+            <mat-tab label="Вход"> 
+                <div class="login-base">
+                    <div class="social-login-area">
+                        <button mat-icon-button class="mat-icon-button" (click)="handleFacebookLogin()">                        
+                            <i inline=true class="fa fa-facebook-square fa-2x"></i>
+                        </button>
+                        <button mat-icon-button class="mat-icon-button" (click)="handleGoogleLogin()">
+                            <i inline=true class="fa fa-google fa-2x"></i>
+                        </button>
+                        <button mat-icon-button class="mat-icon-button">
+                            <i inline=true class="fa fa-twitter fa-2x"></i>
+                        </button>
+                    </div>
+
+                    <div class="text-separator">или введите данные ниже</div>
+
+                    <form class="login-form"
+                        [formGroup]="loginForm"
+                        (ngSubmit)="handleLoginFormSubmit()">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Эл.почта</mat-label>
+                            <mat-icon matSuffix>email</mat-icon>
+                            <input matInput formControlName="email" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Пароль</mat-label>
+                            <mat-icon class="password-show-hide" matSuffix (click)="hideLoginPassword = !hideLoginPassword">{{hideLoginPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <input matInput formControlName="password" [type]="hideLoginPassword ? 'password' : 'text'" required>
+                            <mat-hint align="end">
+                                <a href="javascript:void(0)">Забыли пароль?</a>
+                            </mat-hint>
+                        </mat-form-field>
+                        <button #submitLogin type="submit" style="display: none;"></button>
+                    </form> 
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Регистрация"> 
+                <div class="register-base"
+                    fxLayout="column">
+                      
+                    <ng-container *ngIf="wizardStep === 1">
+                        <div fxFlex class="register-header">
+                            <h2>Укажите тип регистрации</h2>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elita</small>
+                        </div>
+
+                        <form class="signup-form"
+                            [formGroup]="signupTypeForm">
+                            <mat-form-field appearance="outline" value="user">
+                                <mat-select formControlName="type">
+                                    <mat-option value="user">Пользователь</mat-option>
+                                    <mat-option value="doctor">Доктор</mat-option>
+                                    <mat-option value="clinic" disabled>Клиника</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </form>
+                    </ng-container>
+
+                    <ng-container *ngIf="wizardStep === 2">
+                        <div fxFlex class="register-header">
+                            <h2>Почта и Пароль</h2>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elita</small>
+                        </div>
+
+                        <form class="signup-form"
+                            [formGroup]="signupLoginPasswordForm">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Эл.почта</mat-label>
+                                <mat-icon matSuffix>email</mat-icon>
+                                <input matInput formControlName="email" required>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Пароль</mat-label>
+                                <mat-icon class="password-show-hide" matSuffix (click)="hideSignupPassword = !hideSignupPassword">{{hideSignupPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                <input matInput formControlName="password" [type]="hideSignupPassword ? 'password' : 'text'" required>
+                            </mat-form-field>
+                        </form>
+                    </ng-container>
+
+                    <ng-container *ngIf="wizardStep === 3">
+                        <div fxFlex class="register-header">
+                            <h2>Персональные данные</h2>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elita</small>
+                        </div>
+
+                        <form class="signup-form"
+                            [formGroup]="signupPersonalDetailsForm">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Имя</mat-label>
+                                <mat-icon matSuffix>email</mat-icon>
+                                <input matInput formControlName="firstName" required>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Фамилия</mat-label>
+                                <input matInput formControlName="lastName" required>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Никнейм</mat-label>
+                                <input matInput formControlName="nickName" required>
+                            </mat-form-field>
+                        </form>
+                    </ng-container>
+
+                    <ng-container *ngIf="wizardStep === 4">
+                        <div fxFlex class="register-header">
+                            <h2>Медицинский опыт</h2>
+                            <small>Lorem ipsum dolor sit amet, consectetur adipiscing elita</small>
+                        </div>
+       
+                        <form class="signup-form"
+                            [formGroup]="signupMedicalExperienceForm">
+    
+                            <mat-form-field appearance="outline">
+                                <mat-label>Специализация</mat-label>
+                                <mat-select formControlName="firstName">
+                                    <mat-option value="ortoped">Ортопед</mat-option>
+                                    <mat-option value="hirurg">Хирург</mat-option>
+                                    <mat-option value="dantist">Дантист</mat-option>
+                                    <mat-option value="cardiolog">Кардиолог</mat-option>
+                                    <mat-option value="nveropatolog">Невропатолог</mat-option>
+                                    <mat-option value="terapevt">Терапевт</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+    
+                            <mat-form-field appearance="outline">
+                                <mat-label>Био</mat-label>
+                                <textarea matInput [maxLength]="300" formControlName="firstName"
+                                          placeholder="Кратко опишите Ваш опыт"></textarea>
+                            </mat-form-field>   
+                        </form>
+                    </ng-container>
+
+                    <div fxFlex></div>
+
+                    <div class="bottom-small-circles">
+                        <div class="back-triangle" [ngClass]="{'active': wizardStep > 1 }" (click)="wizardStep > 1 ? wizardStep = wizardStep - 1 : wizardStep = wizardStep"></div>
+                        <div class="small-circles" [ngClass]="{'active': wizardStep === 1 }"  ></div>
+                        <div class="small-circles" [ngClass]="{'active': wizardStep === 2 }"  ></div>
+                        <div class="small-circles" [ngClass]="{'active': wizardStep === 3 }"  ></div>
+                        <div class="small-circles" [ngClass]="{'active': wizardStep === 4 }"  ></div>
+                    </div>
+                </div>
+            </mat-tab>
+
+        </mat-tab-group>
+
+    </div>
+
+    <div class="login-signup-controls"
+        fxLayoutAlign="center center">
+
+        <button class="save-button mat-flat-button mat-primary" type="button" (click)="handleContinue()">Продолжить</button>
+        <button class="cancel-button mat-stroked-button"(click)="handleClose()">Отмена</button>
+    </div>
+</div>

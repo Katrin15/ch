@@ -1,0 +1,43 @@
+@import "src/assets/styles/helpers/_vars.sass"
+@import "src/assets/styles/helpers/_mixins.sass"
+
+.charity-card
+  color: $blue
+  border-radius: $radius
+  box-shadow: 10px 20px 80px rgba(183, 198, 209, 0.8)
+  background-color: $market-backgr-gray
+  overflow: hidden
+
+@media screen and (max-width: 599px)
+  .charity-card
+    margin: 0 5% 30px
+
+// gt-xs
+@media screen and (min-width: 600px) and (max-width: 959px)
+  .charity-card
+    margin: 0 3% 30px
+
+// gt-sm
+@media screen and (min-width: 960px) and (max-width: 1279px)
+  .charity-card
+    margin: 0 3.5% 40px 0
+    &:nth-of-type(3n)
+      margin-right: 0
+
+// gt-md
+@media screen and (min-width: 1280px)
+  .charity-card
+    margin: 0 3% 67px 0
+    &:nth-of-type(4n)
+      margin-right: 0
+
+.single-loader
+  // min-height: calc(100% - 60px)
+  height: 140px
+  min-width: 100%
+  padding: 20px 0
+  ::ng-deep.mat-progress-spinner
+    margin: 0 auto
+    circle
+      stroke: $single-loader-gray //#3f51b50d
+      stroke-width: 2px !important

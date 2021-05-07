@@ -1,0 +1,266 @@
+@import "src/assets/styles/helpers/_mixins.sass"
+.welcome-base
+    width: 100%
+    height: 100%
+
+    .welcome-header-area
+        min-height: 750px
+        background: url('/assets/images/welcome/header-background.svg') bottom no-repeat
+        background-size: cover
+        .intro-area
+            .left-content
+                background: white
+                margin-left: auto
+                padding: 6em
+                border-radius: 10px
+
+                +r(1279)
+                  margin-right: auto
+                  margin-left: auto
+                  width: 90%
+                  margin-top: 20px
+                .text-area
+                    max-width: 85%
+                    +r(1279)
+                      text-align: center
+
+            .center-content
+                position: relative
+
+                +r(1279)
+                  position: initial
+                  margin-top: 20px
+                  margin-bottom: 5px
+                .image
+                    position: absolute
+                    display: inline-block
+                    left: -15em
+                    top: -1em
+                    height: 393px
+                    width: 475px
+                    background: url('/assets/images/welcome/header-center-image.svg') top no-repeat
+
+                    +r(1279)
+                      margin-bottom: 5px
+                      position: initial
+                      width: 260px
+                      height: 200px
+                      display: block
+                    background-size: cover
+                .view-video-area
+                    +r(1279)
+                      position: initial
+                      margin-left: auto
+                      margin-right: auto
+                      margin-bottom: 20px
+                      padding-right: 20px
+                    position: absolute
+                    top: 25em
+                    left: -12em
+                    width: 180px
+                    height: 50px
+                    z-index: 10
+                    background: #d5e1eb
+                    border: 1px solid #d5e1eb
+                    border-radius: 10px
+                    button
+                        margin: 5px
+                        width: 95%
+                        height: 95%
+                        border-radius: 10px/10px
+                        background: #13AF67
+                        &:focus
+                            outline: none
+                            box-shadow: none
+
+            .right-content
+                margin-left: auto
+                background: white
+                padding: 5em 3em 3em 3em
+                border-radius: 10px 0 0 10px
+                +r(1279)
+                  margin-bottom: 80px
+                  width: 90%
+                  padding-left: 10px
+                  padding-right: 10px
+                  margin-left: auto
+                  margin-right: auto
+                  padding-top: 10px
+                div
+                    max-width: 70%
+                +r(960)
+                  .text-area
+                      margin-top: 15px
+
+            .left-content
+              +r(960)
+                padding: 1rem
+    .welcome-about-area
+        min-height: 650px
+        padding-top: 80px
+        background: linear-gradient(90turn, #F4F9FC, white, white, white, #F4F9FC)
+        .text-area
+          .card-description-type1
+            &--first
+              +r(960)
+                font-weight: bold
+        .left-content > .text-area
+            max-width: 60%
+            text-align: center
+            +r(960)
+              max-width: 100%
+        .right-content
+            position: relative
+            .description
+                height: 63%
+                width: 80%
+                border-radius: 17px/14px
+                background: url('/assets/images/welcome/about-description-background.svg') bottom no-repeat
+                background-size: cover
+                +r(960)
+                  background: none
+                  width: 100%
+
+            .image
+                position: absolute
+                display: inline-block
+                left: -5em
+                top: 17em
+                height: 260px
+                width: 392px
+                background: url('/assets/images/welcome/about-image.svg') top no-repeat
+                background-size: cover
+                +r(960)
+                  display: block
+                  position: initial
+                  margin-left: auto
+                  margin-right: auto
+                  width: 270px
+                  height: 180px
+
+    .welcome-charity-area
+
+        background: url('/assets/images/welcome/charity-background.svg') top no-repeat
+        background-size: cover
+        padding-top: 5em
+        +r(960)
+          height: auto
+        .charity-info
+            min-height: 450px
+            width: 250px
+            .picture
+                position: relative
+                padding-left: calc(50% - 85px)
+                .circle
+                    background: white
+                    width: 170px
+                    height: 170px
+                    border-radius: 50%
+                .image
+                    position: absolute
+                    display: inline-block
+                    left: 1em
+                    height: 180px
+                    width: 120px
+                    background: url('/assets/images/welcome/charity-heart-palm-image.svg') top no-repeat
+                    background-size: cover
+
+
+    .welcome-progress-area
+        height: 700px
+        padding: 5em 8em 0 8em
+        margin-bottom: 100px
+        +r(960)
+          height: auto
+          padding: 0em 1em 0em 1em
+          padding-top: 50px
+        .details-items
+            background: rgb(255,255,255)
+            background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(251,251,251,1) 100%)
+            border-radius: 10px
+            .progress-info
+                min-height: 150px
+                width: 300px
+                +r(960)
+                  margin-right: 0px !important
+                  margin-top: 20px
+        .title
+          +r(960)
+            text-align: center
+.spacer
+  flex: 1 1 auto
+
+.fade-line
+    height: 1px !important
+    background-color: #E6E6E6
+    width: 100%
+    margin: 0 auto
+    background-image: linear-gradient(left , white 2%, #E6E6E6 50%, white 98%)
+    background-image: -o-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%)
+    background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%)
+    background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%)
+    background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%)
+    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, #80808057), color-stop(0.98, white) )
+    +r(960)
+      display: none
+.card-title-type1
+    font-family: Caveat
+    font-style: normal
+    font-weight: bold
+    font-size: 48px
+    line-height: 100%
+    color: #15284A
+
+.card-title-type1-dimm1
+    @extend .card-title-type1
+    color: #15284aa3
+    +r(960)
+      text-align: center
+
+.card-title-type1-dimm2
+    @extend .card-title-type1
+    color: #15284a4a
+
+.card-title-type1-sm
+    font-family: Caveat
+    font-style: normal
+    font-weight: bold
+    font-size: 30px
+    line-height: 100%
+    color: #15284A
+
+.card-title-type2
+    font-family: Raleway
+    font-style: normal
+    font-weight: bold
+    font-size: 17px
+    line-height: 150%
+    color: #15284A
+    +r(960)
+      text-align: center
+
+.card-title-type2-dimm2
+    @extend .card-title-type2
+    color: #15284a6b
+
+.card-description-type1
+    font-family: Raleway
+    font-style: normal
+    font-weight: 500
+    font-size: 15px
+    line-height: 180%
+    color: #808080
+    +r(960)
+      margin-right: 30px
+      margin-left: 30px
+      max-width: 400px
+      text-align: center
+
+
+.card-description-type1-dimm1
+    @extend .card-description-type1
+    color: #808080b8
+
+.card-description-type1-dimm2
+    @extend .card-description-type1
+    color: #80808042

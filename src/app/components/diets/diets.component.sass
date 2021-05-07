@@ -1,0 +1,35 @@
+@import "src/assets/styles/helpers/_vars.sass"
+
+@media screen and (max-width: 599px)
+  .news-card
+    margin: 0 5% 30px
+
+// gt-xs
+@media screen and (min-width: 600px) and (max-width: 959px)
+  .news-card
+    margin: 0 3% 30px
+
+// gt-sm
+@media screen and (min-width: 960px) and (max-width: 1279px)
+  .news-card
+    margin: 0 3.5% 40px 0
+    &:nth-of-type(3n)
+      margin-right: 0
+
+// gt-md
+@media screen and (min-width: 1280px)
+  .news-card
+    margin: 0 3% 67px 0
+    &:nth-of-type(4n)
+      margin-right: 0
+
+.single-loader
+  // min-height: calc(100% - 60px)
+  height: 140px
+  min-width: 100%
+  padding: 20px 0
+  ::ng-deep.mat-progress-spinner
+    margin: 0 auto
+    circle
+      stroke: $single-loader-gray
+      stroke-width: 2px !important

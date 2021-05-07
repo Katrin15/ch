@@ -1,0 +1,64 @@
+<div class="market-card__container"
+fxFlex="1 1 100"
+fxLayout="row wrap"
+fxLayoutAlign="center start">
+    <a class="market-card__img-wrap" href="javascript:void(0)" (click)="navigateToRoute()"
+    fxFlex="1 1 100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start">
+        <img class="market-card__img"
+        mat-card-image [src]="item.pictures | resolvePreviewImageUrl : './assets/images/news-placeholder.png'" alt="Product photo">        
+    </a>
+    
+    <div class="market-card__info"
+        fxFlex="1 1 100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center start">
+
+        <div class="market-card__views-likes"
+        fxFlex="1 1 100">
+            <div class="market-card__category"
+            fxFlex="1 1 40"
+            fxLayoutAlign="start center">
+                {{item.category}}</div>
+            <div fxFlex></div>
+            <div
+            fxFlex="1 1 20"
+            fxLayoutAlign="end center">
+                <span class="market-card__icon"><i class="icon-eye"></i></span>
+                <span class="market-card__icon"><i class="icon-heart"></i></span>
+            </div>
+        </div>
+        <div class="market-card__title"
+        fxFlex="1 1 100">
+            <a href="javascript:void(0)" (click)="navigateToRoute()">{{item.title}}</a>           
+        </div>
+        <div class="market-card__location-price"
+        fxFlex="1 1 100">
+
+            <span class="market-card__icon"
+            fxFlex="1 1 10"
+            fxLayoutAlign="start center">
+                <i class="icon-map-pick"></i>
+            </span>
+            <div class="market-card__location-container"
+            fxLayout="column"
+            fxFlex="1 1 60">
+                <div class="market-card__location1">
+                    {{item.location1}}
+                </div>
+                <div class="market-card__location2">
+                    {{item.location2}}
+                </div>
+            </div>
+            <div class="market-card__price"
+            fxFlex="1 1 30"
+            fxLayoutAlign="end center">
+                {{item.price}} грн.
+            </div> 
+                      
+        </div>
+
+    </div>
+
+</div>

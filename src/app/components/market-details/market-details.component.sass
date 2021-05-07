@@ -1,0 +1,195 @@
+@import "src/assets/styles/components/_fonts.sass"
+@import "src/assets/styles/helpers/_vars.sass"
+@import "src/assets/styles/helpers/_mixins.sass"
+
+
+
+.market-details
+  margin-top: 120px
+  &__slider
+    margin-bottom:20px
+    border-radius: $radius
+    overflow: hidden
+    height: 300px
+    background-color: white
+    text-align: center
+    padding-top: 5%
+
+  &__img
+    display: inline-block
+    height: 90%
+    width: auto
+    border-radius: $radius
+    cursor: pointer
+
+  &__date-id
+    font-family: Raleway
+    font-style: italic
+    font-size: 13px
+    line-height: 150%
+    letter-spacing: 0.03em // ??
+    color: $market-text-gray
+    margin-bottom: 40px
+
+  &__title
+    font-family: Raleway
+    +bold
+    font-size: 24px
+    line-height: 150%
+    color: $blue
+    margin-bottom: 20px
+
+  &__description
+    font-family: Raleway
+    font-weight: 500
+    font-size: 14px
+    line-height: 180%
+    color: black
+    margin-bottom: 45px
+
+  &__condition-price
+    margin-bottom: 22px
+  &__condition
+    font-family: Raleway
+    +bold
+    font-size: 12px
+    line-height: 180%
+    letter-spacing: 2px // 0.2em
+    text-transform: uppercase
+    color: $market-text-gray
+  &__price
+    font-family: Raleway
+    +bold
+    font-size: 24px
+    line-height: 150%
+    color: $blue
+
+  &__icon
+    color: $blue
+    font-size: 22px
+
+  &__payment-delivery
+    padding-bottom: 40px
+    margin-bottom: 40px
+    border-bottom: solid $market-border-gray 1px
+
+  &__icon--payment, &__payment
+    +r(959)
+      margin-bottom: 30px
+    +r(599)
+      margin-bottom: 0
+
+  &__info-title
+    font-family: Raleway
+    +bold
+    font-size: 10px
+    line-height: 180%
+    color: $blue
+    margin-left: 10px
+  &__info-description
+    font-family: Raleway
+    font-style: italic
+    font-size: 10px
+    line-height: 150%
+    letter-spacing: 0.03em
+    color: $market-text-gray2
+    margin-left: 10px
+
+  &__provider-location
+    margin-bottom: 80px
+
+  &__buy
+    margin-bottom: 120px
+
+  &__buy-btn
+    background-color: $button-green
+    color: white
+    font-family: Raleway
+    +bold
+    font-size: 14px
+    line-height: 150%
+    letter-spacing: 0.2em
+    text-transform: uppercase
+    border: none
+    border-radius: $radius
+    padding: 15px 0 // 55px
+    width: 100%
+    text-align: center
+    +r(959)
+      margin-bottom: 30px
+
+
+// block from news-details (modified)
+.single
+    &__body-info
+      //margin-left: 29px
+    &__icon
+        width: 24px
+        height: 24px
+        font-size: 24px
+        margin-right: 14px
+        color: $blue
+        cursor: pointer
+    &__icon-list
+        list-style: none
+        padding: 0
+        margin: 0
+    &__icon-item
+        margin-right: 24px
+        font-size: 24px
+        &:nth-of-type(3)
+          margin-right: 0  
+    &__icon--heart
+        width: 25px
+        height: 25px
+        display: block
+        background-position: center
+        background-repeat: no-repeat
+    &__icon-text
+        font-style: italic
+        font-weight: normal
+        font-size: 13px
+        line-height: 150%
+        color: $blue
+        text-align: center
+
+// carousel
+.carousel-main
+  margin-bottom: 20px
+  &__img
+    width: 340px
+    border-radius: $radius
+    +r(959)
+      width: 100%
+
+.carousel-nav
+  width: 300px
+  margin: 0 auto
+  +r(959)
+      width: 86%
+  &__img
+    width: 70px
+    border-radius: $radius
+    +r(959)
+      width: 95%
+
+.popup
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(0,0,0,.9)
+  z-index: 1000
+  visibility: hidden
+
+  &__container
+    margin: 5% auto
+    padding: 20px    
+
+.carousel-popup
+  &__img
+    width: 50%
+    border-radius: $radius
+    +r(959)
+      width: 70%

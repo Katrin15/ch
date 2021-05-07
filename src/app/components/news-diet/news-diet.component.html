@@ -1,0 +1,18 @@
+<div class="news-card__container">
+    <div class="news-card__img-wrap">
+        <img class="news-card__img"
+        mat-card-image [src]="item.pictures | resolvePreviewImageUrl : defaultImgSrcPath" alt="News photo"> <!-- './assets/images/news-placeholder.png' -->
+
+        <div class="news-card__icon" 
+        (click)="toggleLike()"
+        [ngClass]="{'news-card__icon--liked': liked}">
+            <i class="icon-heart"></i>
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="news-card__link" (click)="navigateToRoute()">
+        <span class="news-card__subtitle">{{item.title}}</span> <!-- Amet minim mollit -->
+        <h1 class="news-card__title">{{item.preview}}</h1> <!-- Образовательный маршрут “Специфика белкового синтеза” -->
+    </a>
+</div>
+
+

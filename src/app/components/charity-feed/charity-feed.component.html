@@ -1,0 +1,55 @@
+<app-base>  
+    <section class="section"
+    fxFlex="1 1 100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start">
+
+    
+    <div class="section-header"
+    fxFlex="1 1 100"        
+    fxLayout="row wrap">
+      <h1 class="section-header__title">
+        Благотворительность
+      </h1>
+    </div>
+
+    <!--  -->
+    <div class="section-content"
+    fxFlex="1 1 100"        
+    fxLayout="row wrap"    
+    fxLayoutAlign="space-start">
+
+      <div
+      infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScrollDown()"      
+      fxFlex="1 1 100"        
+      fxLayout="row wrap"    
+      fxLayoutAlign="space-start">
+
+        <ng-container *ngIf="projects">
+          <article
+          *ngFor="let item of projects"
+          class="charity-card"
+          fxFlex="1 1 100"
+          fxFlex.gt-xs="1 1 44"
+          fxFlex.gt-sm="1 1 31"
+          fxFlex.gt-md="1 1 22.75">
+            <app-charity-card [item]="item" [route]="'charity/' + item.id"></app-charity-card>
+          </article>
+        </ng-container>
+
+        <ng-container *ngIf="showLoader">
+          <div class="single-loader"
+          fxFlex="1 1 100">
+            <mat-spinner></mat-spinner>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+  </section>
+</app-base>

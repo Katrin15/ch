@@ -1,0 +1,59 @@
+<app-base>  
+    <section class="section"
+    fxFlex="1 1 100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start">
+
+        <app-market-search></app-market-search>
+      
+        <!-- fxFlex.gt-sm="1 1 80" -->
+        <div class="section-header"
+        fxFlex="1 1 100"        
+        fxLayout="row wrap">
+          <h1 class="section-header__title">
+            Топ товары
+          </h1>
+        </div>
+  
+        <!-- fxFlex.gt-sm="1 1 80" --> 
+        <div class="section-content"
+        fxFlex="1 1 100"        
+        fxLayout="row wrap"    
+        fxLayoutAlign="space-start">
+  
+          <div
+          infinite-scroll
+          [infiniteScrollDistance]="scrollDistance"
+          [infiniteScrollUpDistance]="scrollUpDistance"
+          [infiniteScrollThrottle]="throttle"
+          (scrolled)="onScrollDown()"      
+          fxFlex="1 1 100"        
+          fxLayout="row wrap"    
+          fxLayoutAlign="space-start">
+  
+            <ng-container *ngIf="products">
+              <div
+              *ngFor="let item of products"
+              class="market-card"
+              fxFlex="1 1 100"
+              fxFlex.gt-xs="1 1 44"
+              fxFlex.gt-sm="1 1 31"
+              fxFlex.gt-md="1 1 22.75">
+                <app-market-card [item]="item" [route]="'market/' + item.id"></app-market-card>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="showLoader">
+              <div class="single-loader"
+              fxFlex="1 1 100">
+                <mat-spinner></mat-spinner>
+              </div>
+            </ng-container>
+
+          </div>
+        </div>
+
+    </section>    
+  </app-base>
+  
+  

@@ -1,0 +1,59 @@
+<app-base>
+  <!--<div
+  fxFlex="1 1 100"
+  fxLayout="row wrap"
+  fxLayoutAlign="center start"> -->
+
+    <section class="section"
+    fxFlex="1 1 100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start">
+
+        
+      <div class="section-header"
+      fxFlex="1 1 100"      
+      fxLayout="row wrap">
+        <h1 class="section-header__title">
+          {{title}}
+        </h1>
+      </div>
+      
+      <div class="section-content"      
+      fxLayout="row wrap"    
+      fxLayoutAlign="space-start">
+
+        <div
+        infinite-scroll
+        [infiniteScrollDistance]="scrollDistance"
+        [infiniteScrollUpDistance]="scrollUpDistance"
+        [infiniteScrollThrottle]="throttle"
+        (scrolled)="onScrollDown()"
+        fxFlex="1 1 100"        
+        fxLayout="row wrap"    
+        fxLayoutAlign="space-start">
+
+          <ng-container *ngIf="items">
+            <article 
+            *ngFor="let item of items"
+            class="news-card"
+            fxFlex="1 1 100"
+            fxFlex.gt-xs="1 1 44"
+            fxFlex.gt-sm="1 1 31"
+            fxFlex.gt-md="1 1 22.75">
+              <app-news-diet [item]="item" [route]="viewOption + '/' + item.id"></app-news-diet>
+            </article>
+          </ng-container>
+
+          <ng-container *ngIf="showLoader">
+            <div class="single-loader"
+            fxFlex="1 1 100">
+              <mat-spinner></mat-spinner>
+            </div>
+          </ng-container>
+          
+        </div>
+      </div>
+    </section>
+  <!--</div>-->
+</app-base>
+

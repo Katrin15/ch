@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/sass/modules/_fonts.sass'
+
+@import "src/assets/styles/components/_icons.sass"
+@import "src/assets/styles/components/_fonts.sass"
+@import "src/assets/styles/helpers/_vars.sass"
+@import "src/assets/styles/helpers/_mixins.sass"
+@import "src/assets/styles/components/_section-header.sass"
+
+.mat-menu-content
+    background-color: $blue
+.mat-menu-content, .mat-menu-panel
+    border-radius: 0!important
+.mat-menu-item
+    color: white
+    &:focus
+        outline: none!important
+    &:hover:not([disabled])
+        background-color: lighten($blue, 20%)
+// carousel
+.slick-slider
+  outline: none
+.slick-slide
+  outline: none
+  text-align: center
+  img
+    display: inline-block
+.carousel-nav
+  .slick-next
+    &:before
+      color: $blue
+  .slick-prev
+    &:before
+      color: $blue
+.carousel-popup
+  .slick-arrow
+    z-index: 1001
+  .slick-next
+    right: 9%
+    &:before
+      font-size: 50px
+  .slick-prev
+    left: 6%
+    &:before
+      font-size: 50px
+
+.charity-card__progress-bar .mat-progress-bar-buffer
+  background-color: white
+.toolbar-loader .mat-progress-bar-buffer
+  background-color: $main-gray-backgr
+.mat-progress-bar-fill::after
+  background: linear-gradient(270deg, #15284A -2.91%, #13AD66 100%)
+  background: -o-linear-gradient(270deg, #15284A -2.91%, #13AD66 100%)
+  background: -moz-linear-gradient(270deg, #15284A -2.91%, #13AD66 100%)
+  background: -webkit-linear-gradient(270deg, #15284A -2.91%, #13AD66 100%)
+  background: -ms-linear-gradient(270deg, #15284A -2.91%, #13AD66 100%)
+
+// mat dialog video
+.about-video-dialog-container .mat-dialog-container
+  background-color: black
+  text-align: center
+
+.about-video-dialog-container.cdk-overlay-pane
+  +r(599.99)
+    max-width: 100%!important
+    width: 100%
+    
+

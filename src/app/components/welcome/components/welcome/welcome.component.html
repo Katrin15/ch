@@ -1,0 +1,116 @@
+<app-base>
+
+<div class="welcome-base">
+    <div class="welcome-header-area"
+        fxLayout="column"
+        fxLayoutAlign="center stretch" >
+
+        <div class="intro-area"
+            fxFlex="0 0 50"
+            fxLayout="row"
+            fxLayout.lt-lg="column"
+            fxLayoutAlign="center stretch"
+            fxLayoutAlign.lt-lg="center center">
+
+            <div class="left-content"
+                fxFlex="0 0 50"
+                fxLayout="column"
+                fxLayoutAlign="space-around start"
+                fxLayoutGap="4em"
+              fxLayoutAlign.lt-lg="space-around center">
+                <div class="text-area"
+                    fxFlex="0 0 45">
+                    <p class="card-title-type1">Проект для обмена информацией</p>
+                </div>
+                <div class="text-area"
+                    fxFlex="0 0 45">
+                    <p class="card-description-type1">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                </div>
+            </div>
+
+            <div class="center-content"
+                fxFlex="1 1 10">
+                <div class="image"></div>
+                <div class="view-video-area" >
+                    <button mat-flat-button color="primary" (click)="handlePopup()"><mat-icon aria-hidden="true">play_circle_outline</mat-icon> РОЛИК О НАС</button>
+                </div>
+            </div>
+
+            <div class="right-content"
+                fxFlex="1 1 20"
+                fxLayout="column"
+                fxLayoutAlign="space-between start"
+              fxLayoutAlign.lt-lg="space-between center">
+
+                <div class="text-area"
+                    fxFlex="0 0 25">
+                    <p class="card-title-type2">Наши источники информации</p>
+                </div>
+
+                <div class="text-area"
+                    fxFlex="0 0 25">
+                    <p class="card-description-type1">Amet minim mollit non deserunt ullamco est</p>
+                </div>
+
+                <div class="fade-line"></div>
+
+                <div class="text-area"
+                    fxFlex="0 0 25">
+                    <button mat-icon-button class="mat-icon-button">
+                        <i inline=true class="fa fa-facebook-square fa-2x"></i>
+                    </button>
+                    <button mat-icon-button class="mat-icon-button">
+                        <i inline=true class="fa fa-instagram fa-2x"></i>
+                    </button>
+                    <button mat-icon-button class="mat-icon-button">
+                        <i inline=true class="fa fa-youtube fa-2x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-about-area"
+         fxLayout="row"
+         fxLayoutAlign="center stretch"
+         fxLayout.lt-md="column"
+         >
+
+        <div class="left-content"
+            fxFlex="1 1 40"
+            fxLayout="column"
+            fxLayoutAlign="start center"
+            fxFlex.lt-md="0 1 40">
+            <div class="text-area"
+                    fxFlex="0 0 10">
+                <p class="card-title-type1">О Нас</p>
+            </div>
+            <div class="text-area"
+                fxFlex="0 0 20">
+                <p class="card-description-type1 card-description-type1--first">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+            </div>
+
+        </div>
+
+        <div class="right-content" fxLayout.lt-md="column">
+            <div class="description"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                fxLayoutGap="15px"
+                 fxLayout.lt-md="column"
+                 >
+                <div class="text-area"
+                    fxFlex="0 0 40">
+                    <p class="card-description-type1">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                </div>
+                <div class="text-area"
+                    fxFlex="0 0 40">
+                    <p class="card-description-type1">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                </div>
+            </div>
+            <div class="image"></div>
+        </div>
+    </div>
+</div>
+
+</app-base>

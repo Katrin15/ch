@@ -1,0 +1,88 @@
+<div class="market-search__container"
+fxLayout="row wrap"
+fxLayoutAlign="center center">
+
+    <h1 class="market-search__title"
+    fxFlex="1 1 100"
+    fxLayout="row"
+    fxLayoutAlign="center center">
+        Поиск среди 18 000 товаров для детей
+    </h1>
+    
+    <div 
+    fxLayout="row"
+    fxFlex="1 1 56.25"
+    fxFlex.lt-md="1 1 80"
+    fxFlex.lt-sm="1 1 100">
+        <div
+        fxFlex="1 1 57px"
+        fxLayoutAlign="end center"
+        class="market-search__submit">
+            <button class="market-search__icon">
+                <span class="icon-search"></span>
+            </button>
+        </div>
+        
+        <div
+        fxFlex="1 1 100"
+        class="market-search__input"> 
+            <input 
+            type="text"
+            placeholder="Поиск по объявлениям"
+            [formControl]="searchText">
+        </div>
+
+        <div
+        fxFlex="1 1 195px"
+        class="market-search__location"
+        fxLayoutAlign="start center" >
+            <div class="market-search__location-container"
+            fxFlex="1 1 100">
+                <span class="market-search__icon"
+                fxFlex="1 1 15"
+                fxLayoutAlign="start start">
+                    <i class="icon-map-pick"></i>
+                </span>
+                <div
+                fxLayout="column"
+                fxFlex="1 1 85">
+                    <div class="market-search__location1">
+                        {{options.city}}
+                    </div>
+                    <div class="market-search__location2">
+                        {{options.area}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row"
+    fxFlex="1 1 100"
+    fxLayoutAlign="center center">
+        <div class="market-search__product-container"
+        fxFlex="1 1 500px"
+        fxFlex.lt-sm="1 1 100"
+        fxLayout="row"
+        fxLayout.lt-sm="row wrap"
+        fxLayoutAlign="space-between start"
+        fxLayoutAlign.lt-sm="space-around center"
+        >
+            <ng-container *ngIf="products">
+                <div
+                *ngFor="let item of products"
+                fxFlex.lt-sm="1 1 33"
+                fxLayoutAlign.lt-sm="center start">
+
+                    <a href="javascript:void(0)" (click)="navigateToRoute(item.id)">
+                        <img class="market-search__img"
+                        mat-card-image [src]="item.pictures | resolvePreviewImageUrl : './assets/images/news-placeholder.png'" alt="Product photo">
+                        <span class="market-search__product-title">{{item.title}}</span>
+                    </a>
+
+                </div>        
+            </ng-container>
+        </div>
+    </div>
+
+</div>

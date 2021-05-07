@@ -1,0 +1,143 @@
+@import "src/assets/styles/helpers/_vars.sass"
+@import "src/assets/styles/helpers/_mixins.sass"
+
+// $blue: #15284A
+$toolbar-menu-blue: #263959
+$toolbar-gray: #727E92 
+$toolbar-search-gray: #F7F7F7
+$toolbar-search-input-gray: #666666
+$border-radius: 12px
+$menu-z-index: 1000
+$menu-height: 90px
+$search-icon-width: 70px
+$search-icon-height: 60px
+
+:host
+  position: sticky
+  top: 0
+  z-index: $menu-z-index
+  margin-bottom: 40px
+  +rmin(960)
+    margin-top: 50px
+
+button:focus
+  outline: none!important
+
+.material-icons
+  &.mat-icon--white
+    color: white
+
+.menu-button
+  height: $menu-height
+  background-color: $blue
+  border-radius: $border-radius 0 0 $border-radius
+
+.toolbar
+  height: $menu-height
+  background-color: white
+  color: $blue
+  padding: 0
+  border-radius: $border-radius
+  z-index: $menu-z-index+1
+  position: relative
+  
+  &-container
+    box-shadow: 0px 40px 60px rgba(21, 40, 74, 0.15)
+    border-radius: $border-radius 0 $border-radius $border-radius
+    +r(959.5)
+      margin-top: $preloader-height
+  
+  &__icon
+    font-size: 24px
+    color: $text-gray
+    margin-right: 10px
+    &--menu
+      color: white
+
+.logo
+  padding: 0 3.5%
+  font-style: italic
+
+.search
+    position: relative
+    &__icon
+        position: absolute
+        top: 0
+        left: 0
+        height: $search-icon-height
+        width: $search-icon-width
+        //z-index: 1002
+        text-align: center
+        padding-top: 18px
+    input
+        background-color: $toolbar-search-gray
+        padding-left: $search-icon-width
+        height: $search-icon-height
+        border-radius: 12px
+        border: none
+        width: 100%
+
+        font-style: italic
+        font-weight: 500
+        font-size: 11px
+        line-height: 150%
+        color: $toolbar-search-input-gray
+
+.menu
+    background-color: $blue
+    padding: 80px 30px 60px 60px     
+
+    &__colomn
+        &:nth-child(2)
+            margin-left: 30px
+
+    &__navigation-button
+        background-color: inherit
+        color: white
+        border: none
+        text-align: left
+        margin-bottom: 20px
+        display: inline-block!important
+        height: 30px        
+
+        font-style: normal
+        font-weight: bold
+        font-size: 14px
+        line-height: 150%
+
+        &:hover 
+            background-color: lighten($blue, 20%)
+
+    &-container
+        position: absolute
+        z-index: $menu-z-index
+        top: 0 // $menu-height
+        left: 0
+        right: 0
+        bottom: 0
+        // height: 300px
+        display: none
+        &__left
+            margin-top: -$border-radius + $menu-height
+            padding-top: $border-radius
+            z-index: $menu-z-index
+            position: relative
+            background-color: $toolbar-menu-blue            
+            height: 300px
+
+        opacity: 1
+        visibility: visible
+        transition: all .3s
+        &--hidden
+            opacity: 0
+            visibility: hidden
+
+@media (min-width: 960px)
+    .menu-button
+        border-radius: $border-radius 0 0 $border-radius
+        &--active
+            border-radius: $border-radius 0 0 0
+
+
+
+

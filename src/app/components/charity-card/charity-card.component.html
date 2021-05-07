@@ -1,0 +1,65 @@
+<div class="charity-card__container"
+fxFlex="1 1 100"
+fxLayout="row wrap"
+fxLayoutAlign="center start">
+    <a class="charity-card__img-wrap" href="javascript:void(0)" (click)="navigateToRoute()"
+    fxFlex="1 1 100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start">
+        <img class="charity-card__img"
+        mat-card-image [src]="item.pictures | resolvePreviewImageUrl : './assets/images/charity-placeholder.png'" alt="Product photo">        
+    </a>
+    <div class="charity-card__info"
+        fxLayout="row wrap">
+        <div class="charity-card__name-date"
+        fxFlex="1 1 100"
+        fxLayoutAlign="space-between center">
+            <div class="charity-card__name"            
+            fxLayoutAlign="start center">
+
+                <span class="charity-card__icon">
+                    <i class="icon-user-fill"></i>
+                </span>                
+                <span class="charity-card__name-date-text">
+                    {{item.createdBy}}
+                </span>
+
+            </div>                        
+            <span class="charity-card__name-date-text">
+                <!--{{item.createdAt}}-->
+                09.09.2020
+            </span>
+        </div>
+        <h1 class="charity-card__title"
+        fxFlex="1 1 100">
+            <a href="javascript:void(0)" (click)="navigateToRoute()">{{item.title}}</a>           
+        </h1>
+        <div class="charity-card__preview"
+        fxFlex="1 1 100">
+          {{item.preview.length < 50 ?  item.preview : (item.preview | slice:0: 50) + '....'}}    
+        </div>
+        <div class="charity-card__progress"
+        fxFlex="1 1 100"
+        fxLayout="row wrap">
+          <div
+          fxFlex="1 1 100"
+          fxLayout="row"
+          fxLayoutAlign="space-between center">
+            <div class="charity-card__progress">{{item.raised}}$</div>
+            <div class="charity-card__progress">{{item.goal}}$</div>
+          </div>
+          <div class="charity-card__name-date-text"
+          fxFlex="1 1 100"
+          fxLayout="row"
+          fxLayoutAlign="end center">
+            <!-- {{item.updatedAt}} -->
+            10.09.2020
+          </div>
+          <mat-progress-bar class="charity-card__progress-bar"
+          fxFlex="1 1 100" 
+          mode="determinate" 
+          value="{{raisedPercent}}"></mat-progress-bar>          
+        </div>
+    </div>
+</div>
+    

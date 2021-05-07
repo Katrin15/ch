@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /dist/on-info-frontend
+    overwrite: true
+    destination: /usr/share/nginx/html/
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install
+      timeout: 60
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 60
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_server
+      timeout: 60
+      runas: root
+  ValidateService:
+    - location: scripts/health_check
+      

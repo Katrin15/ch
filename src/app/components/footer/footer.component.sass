@@ -1,0 +1,103 @@
+@import "src/assets/styles/helpers/_mixins.sass"
+.footer
+  background-color: #15284A
+
+  &__content
+    display: grid
+
+    grid-template-columns: 1fr 1fr 1fr 2fr
+    +r(960)
+      grid-template-columns: 1fr
+
+  &__column-light
+    margin-left: 150px
+    margin-right: 0px !important
+    background: #263959
+    +r(960)
+      margin-left: 0px
+      padding-bottom: 20px
+      padding-top: 30px !important
+
+  &__text
+    color: white
+    text-transform: uppercase
+    font-weight: 800
+    font-size: 20px
+    line-height: 150%
+    font-family: Panton
+    font-style: italic
+    text-align: right
+    margin-top: 10px
+    +r(960)
+      text-align: center
+  &__column
+    margin-right: 50px
+    padding-top: 45px
+    +r(960)
+      padding-top: 10px
+      margin-right: 0px
+
+      &--margin
+        margin-top: -25px
+  &__list
+    display: grid
+    grid-template-columns: 1fr
+    list-style: none
+    margin-left: 50px
+    +r(960)
+      text-align: center
+      margin-left: 10px
+      margin-right: 10px
+      padding-left: 0px !important
+  &__item
+
+    margin-top: 10px
+    margin-bottom: 10px
+    color: white
+    font-family: Raleway
+    font-style: normal
+    font-weight: bold
+    font-size: 12px
+    line-height: 150%
+    cursor: pointer
+  &__icon-list
+    display: flex
+    list-style: none
+    padding-left: 40px
+    +r(960)
+      justify-content: center
+      padding-left: 0px !important
+  &__icon-item
+    margin-left: 15px
+    margin-right: 15px
+    &--dark
+      background-color: white
+      & i
+        color: #263959
+    & i
+      color: white
+  &__logo
+    display: grid
+    grid-template-columns: 1fr
+    padding-left: 40px
+    margin-left: 15px
+    margin-top: 70px
+    margin-right: 15px
+    +r(960)
+      justify-content: center
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-top: 20px !important
+      padding-left: 0px
+  &__subtext
+    color: #FFFFFF
+    opacity: 0.6
+    font-family: Raleway
+    font-style: normal
+    font-weight: 500
+    font-size: 10px
+    line-height: 150%
+  &__logo-icon
+    opacity: 0.6
+    margin-top: 5px

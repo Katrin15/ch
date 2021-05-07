@@ -1,0 +1,117 @@
+@import "src/assets/styles/components/_fonts.sass"
+@import "src/assets/styles/helpers/_vars.sass"
+@import "src/assets/styles/helpers/_mixins.sass"
+
+$height: 60px
+$text: #666666
+
+.market-search
+    &__container
+        margin: 50px auto
+    &__title
+        +bold
+        font-size: 34px
+        line-height: 150%
+        color: $blue
+        margin: 0 0 40px
+        text-align: center
+    &__icon
+        font-size: 24px
+        color: $blue
+    &__submit
+        height: $height
+        background-color: $market-backgr-gray
+        border-radius: $radius 0 0 $radius
+        button
+            padding: 0
+            border: none
+            outline: none
+            background-color: transparent
+    &__input
+        height: $height        
+        input
+            border: none
+            width: 100%
+            height: 100%
+            background-color: $market-backgr-gray
+            padding-left: 23px
+
+            font-family: Raleway
+            font-style: italic
+            +medium
+            font-size: 11px
+            line-height: 150%
+            color: $text
+            &:focus
+                outline: none
+
+
+    &__location-container
+        padding-left: 24px
+        height: 40px
+        border-left: solid $blue 1px
+
+    &__location
+        height: $height
+        border-radius: 0 $radius $radius 0
+        background-color: $market-backgr-gray
+        
+    &__location1
+        font-family: Raleway
+        +bold
+        font-size: 10px
+        line-height: 180%
+        color: $blue
+
+    &__location2
+        font-family: Raleway
+        font-style: italic
+        font-size: 10px
+        line-height: 180%
+        color: $market-text-gray2
+
+    &__product-container
+        margin-top: 40px
+
+    &__img
+        display: block
+        border-radius: 30px
+        height: 60px
+        width: 60px
+        //+r(599)
+        //    border-radius: 60px
+        //    height: 120px
+        //    width: 120px
+        //    margin-top: 20px
+        
+
+
+    &__product-title
+        display: inline-block
+        width: 60px
+        text-align: center
+        font-family: Raleway
+        +semi
+        font-size: 10px
+        line-height: 150%
+        color: $blue
+        margin-top: 15px
+    
+@media screen and (max-width: 499px)
+    .market-search__img
+        border-radius: 30px
+        height: 60px
+        width: 60px
+        margin-top: 30px
+    .market-search__product-title
+        width: 60px
+
+@media screen and (min-width: 500px) and (max-width: 599px)
+    .market-search__img
+        border-radius: 60px
+        height: 120px
+        width: 120px
+        margin-top: 30px
+    .market-search__product-title
+        width: 120px
+        

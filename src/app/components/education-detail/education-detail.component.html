@@ -1,0 +1,89 @@
+<app-base>
+    <section class="section">
+      <div class="flex margin-60" fxLayout="row" fxLayout.lt-md="column">
+        <div *ngIf="item" class="single"  
+             fxFlex="1 1 65" 
+             fxFlex.lt-md="1 1 100">
+
+          <div class="single__content">
+            <div class="single__head">
+              <div class="single__img-wrap">
+                <div *ngIf="item" class="single__img">
+                    <img *ngIf="item" [src]="item.pictures | resolvePreviewImageUrl : './assets/images/edu_path_default_2.jpg'" alt="News photo">
+                </div>
+              </div>
+              <div class="single__info"  fxLayout="row" fxLayoutAlign="space-between none" >
+                <div class="single__text">
+                    {{item.preview}}
+                </div>
+                <div class="single__name" fxLayout="row" *ngIf = "item.createdBy">
+                  <div class="single__icon"><i class="icon-user-fill"></i></div>
+                  {{item.createdBy}}
+                </div>
+              </div>
+            </div>
+            
+            <div class="single__body" 
+            fxLayout="row wrap">
+                <div fxFlex="1 1 100">
+                    <div class="single__body-info"
+                    fxFlex="1 1 90">
+                        <h2 class="single__title">{{item.title}}</h2>
+                        <div>{{item.full}}</div>
+                    </div>
+                    <div 
+                    fxFlex="1 1 10"
+                    fxLayout="column">
+                        <ul class="single__icon-list">
+                            <li class="single__icon-item">
+                                <i class="icon-heart"></i>
+                                <span class="single__icon-text">{{item.likesCount}}</span>
+                            </li>
+                            <li class="single__icon-item">
+                                <i class="icon-eye"></i>
+                                <span class="single__icon-text">130</span>
+                            </li>
+                            <li class="single__icon-item">
+                                <i class="icon-share"></i>                                
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+                <div class="single__btn-clock"
+                fxFlex="1 1 100"
+                fxLayout="row"
+                fxLayoutAlign="start center">
+                    
+                    <div *ngIf="!item.is_approved" class="single__btn-wrap"                     
+                    fxLayoutAlign="center center">
+                        <a href="#" class="single__btn"> Выполнить </a>
+                    </div>
+                    <div class="single__icon-item-clock"
+                    fxLayout="row"
+                    fxLayoutAlign="start center" >
+                        <i class="icon-clock"></i>
+                        <span class="single__icon-text single__icon-text--clock"> 2 часа </span>                           
+                    </div>
+                </div>
+                
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="sidebar-wrapper"  
+        fxFlex="1 1 30" 
+        fxFlex.lt-md="1 1 100">
+            <app-sidebar  [title] = "sidebarTitle">
+              <ul class="sidebar-cards">
+                <li class="sidebar-card" *ngFor = "let item of topItems">
+                    <app-news-diet [item]="item" [route]="'educational-path/' + item.id"></app-news-diet>
+                </li>
+              </ul>
+            </app-sidebar>
+        </div>
+    </div>
+    </section>
+  </app-base>
+ 
+

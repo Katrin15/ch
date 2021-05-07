@@ -1,0 +1,213 @@
+<div
+fxFlex="1 1 100" 
+fxLayout="row wrap">
+
+  <div
+  fxFlex="1 1 100"
+  class="toolbar-container">
+    <mat-toolbar
+    fxFlex="1 1 100"
+    class="toolbar">
+
+      <button mat-button
+      class="menu-button"
+      [ngClass]="{'menu-button--active': isMenuHidden === false }"        
+      fxFlex="1 1 9.6"
+      fxHide.lt-md
+      (click)="openMenu()">
+            <mat-icon class="mat-icon--white">menu</mat-icon>
+      </button>
+
+      <!-- menu for less 960px fxHide.gt-sm -->
+      <button mat-button [matMenuTriggerFor]="menu"
+      class="menu-button"
+      fxFlex="1 1 9.6"
+      fxHide.gt-sm>
+      <mat-icon class="mat-icon--white">menu</mat-icon>
+      </button>
+
+      <div class="logo"
+      fxFlex.gt-sm="1 1 31.9"
+      fxFlex.lt-md="1 1 28">
+        ON INFO 
+      </div>
+
+      <div class="search"
+      fxFlex="1 1 32.5"
+      fxFlex.lt-sm="1 1 54">
+        <div class="search__icon"><mat-icon class="mat-icon--gray mat-icon--20">search</mat-icon></div>
+        <input type="text" placeholder="поиск по сайту">
+      </div>
+        
+      <div class="toolbar-buttons"
+      fxFlex="1 1 26"
+      fxLayout="row"
+      fxLayoutAlign="space-evenly"
+      fxHide.lt-sm>
+        <button mat-icon-button aria-label="language" class="toolbar-buttons__button"> 
+          <span class="toolbar__icon"><i class="icon-lang"></i></span>
+        </button>
+        <button mat-icon-button aria-label="notifications" class="toolbar-buttons__button">
+          <span class="toolbar__icon"><i class="icon-ding"></i></span>
+        </button>
+        <button mat-icon-button aria-label="shopping cart" class="toolbar-buttons__button">
+          <span class="toolbar__icon"><i class="icon-cart"></i></span>
+        </button>
+        <button *ngIf="!loggedIn" mat-icon-button aria-label="login" class="toolbar-buttons__button" (click)="handleLogin()">
+          <span class="toolbar__icon"><i class="icon-user"></i></span>
+        </button>
+      </div>      
+    </mat-toolbar>  
+
+    <mat-menu #menu="matMenu" 
+        class="mobile-menu"
+        fxHide.gt-sm>
+
+        <button mat-menu-item class="menu-navigation-button"
+        [ngClass]="{'active': currentActivePath === activePath.NEWS}"
+        (click)="navigateToNews()">
+            Новости
+        </button>
+
+        <button mat-menu-item class="menu-navigation-button"
+        [ngClass]="{'active': currentActivePath === activePath.EDUCATION}"
+        (click)="navigateToEducationalPath()">
+            Образовательные маршруты
+        </button>
+
+        <button mat-menu-item class="menu-navigation-button">
+            Партнеры
+        </button>
+
+        <button mat-menu-item class="menu-navigation-button"
+        [ngClass]="{'active': currentActivePath === activePath.MARKET}"
+        (click)="navigateToMarket()">
+            Маркетплейс
+        </button>
+
+        <button mat-menu-item class="menu-navigation-button">
+          Доктора
+        </button>
+
+        <button mat-menu-item class="menu-navigation-button" (click)="navigateToDiets()">
+            Диеты
+        </button>
+
+        <button mat-menu-item class="menu-navigation-button"
+        [ngClass]="{'active': currentActivePath === activePath.CHARITY}"
+        (click)="navigateToCharity()">
+            Благотворительность
+        </button>
+
+        <div
+        fxFlex
+        fxHide.gt-xs>
+            <button mat-menu-item class="menu-navigation-button"
+            fxLayout="row"
+            fxLayoutAlign="start center">
+                <span class="toolbar__icon"><i class="icon-lang"></i></span>Язык 
+            </button>
+    
+            <button mat-menu-item class="menu-navigation-button"
+            fxLayout="row"
+            fxLayoutAlign="start center">
+                <span class="toolbar__icon"><i class="icon-ding"></i></span>Уведомления
+            </button>
+    
+            <button mat-menu-item class="menu-navigation-button"
+            fxLayout="row"
+            fxLayoutAlign="start center">
+              <span class="toolbar__icon"><i class="icon-cart"></i></span>Корзина
+            </button>
+    
+            <button mat-menu-item class="menu-navigation-button" (click)="handleLogin()"
+            fxLayout="row"
+            fxLayoutAlign="start center">
+              <span class="toolbar__icon"><i class="icon-user"></i></span>Логин
+            </button>
+          </div>
+          <!--
+          <button class="menu__navigation-button"
+                  [ngClass]="{'active': currentActivePath === activePath.RECOMMENDATIONS}"
+                  (click)="navigateToRecommendations()">
+              Рекоммендации
+          </button>
+
+          <button class="menu__navigation-button" 
+                  (click)="navigateToForum()">
+              Форум
+          </button>
+          -->
+    </mat-menu>
+  </div>
+
+</div>
+
+<div class="menu-container"
+(click)="closeMenu()" 
+[ngClass]="{'menu-container--hidden': isMenuHidden === true}"    
+fxLayoutAlign="center"
+fxHide.lt-md>
+
+  <!-- fxFlex="1 1 80" -->
+  <div class="menu-container__left"
+  fxFlex="1 1 100">
+
+    <div class="menu"            
+    fxFlex="1 1 63.16"
+    fxLayout="row">
+
+      <div fxLayout="column" class="menu__colomn">
+        <button  class="menu__navigation-button" 
+        [ngClass]="{'active': currentActivePath === activePath.NEWS}"
+        (click)="navigateToNews()">
+          Новости
+        </button>
+
+        <button class="menu__navigation-button" 
+        [ngClass]="{'active': currentActivePath === activePath.EDUCATION}"
+        (click)="navigateToEducationalPath()">
+          Образовательные маршруты
+        </button>
+
+        <button class="menu__navigation-button"        
+        (click)="navigateToPartners()">
+          Партнеры
+        </button>
+
+        <button class="menu__navigation-button"
+        [ngClass]="{'active': currentActivePath === activePath.MARKET}"
+        (click)="navigateToMarket()">
+          Маркетплейс
+        </button>
+        <!--
+        <button class="menu__navigation-button" 
+        (click)="navigateToForum()">
+          Форум
+        </button>
+         -->
+      </div>
+          
+      <div fxLayout="column" class="menu__colomn">
+        <button class="menu__navigation-button">
+          Доктора
+        </button>
+
+        <button class="menu__navigation-button" (click)="navigateToDiets()">
+          Диеты
+        </button>
+
+        <button class="menu__navigation-button"
+        [ngClass]="{'active': currentActivePath === activePath.CHARITY}"
+        (click)="navigateToCharity()">
+          Благотворительность
+        </button>
+      </div>            
+    </div>
+  </div>
+</div>
+
+
+
+
+

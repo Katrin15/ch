@@ -1,0 +1,79 @@
+// @import "src/assets/styles/components/_icons.sass"
+@import "src/assets/styles/components/_fonts.sass"
+@import "src/assets/styles/helpers/_vars.sass"
+@import "src/assets/styles/helpers/_mixins.sass"
+
+.charity-card__container
+  &:hover .charity-card__img  
+    transform: scale(1.2)
+
+.mat-progress-bar
+  height: 12px
+  border-radius: 10px
+
+.charity-card
+  &__container
+    background-color: $market-backgr-gray
+    &:hover charity-card__img  
+      transform: scale(1.2)
+
+  &__img-wrap 
+    padding-bottom: 76% // 61%
+    background-color: white
+    position: relative
+    overflow: hidden
+  
+  &__img 
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 0
+    width: 100%
+    transition: transform 3s
+    background-size: cover
+    background-position: 50%
+
+  &__info
+    padding: 17px 20px 19px
+
+  &__icon
+    margin-right: 13px
+    color: $market-text-gray
+    font-size: 13px
+
+  &__name-date
+    margin-bottom: 26px
+
+  &__name-date-text
+    font-family: Raleway
+    font-style: italic
+    font-size: 10px
+    color: $market-text-gray
+
+  &__title
+    margin-bottom: 15px
+    a
+      font-family: Raleway
+      +bold
+      font-size: 16px
+      line-height: 150%
+      text-decoration: none
+      color: $blue
+
+  &__preview
+    margin-bottom: 20px
+    font-family: Raleway
+    font-weight: 500
+    font-size: 12px
+    line-height: 180%
+    color: $blue
+
+  &__progress
+    font-family: Raleway
+    +bold
+    font-size: 16px
+    line-height: 150%
+    color: $blue
+
+  &__progress-bar
+    margin-top: 15px

@@ -1,0 +1,172 @@
+<app-base>
+
+    
+    <div *ngIf="!recommendations" class="single-loader">
+          <mat-spinner></mat-spinner>
+    </div>
+
+
+    <div *ngIf="recommendations" class="partners-base" fxHide.lt-md
+        fxFlex="1 1 100"
+        fxLayout="row"
+        fxLayoutAlign="center start">
+
+        <div class="partners-tabs-area" fxFlex="1 1 20"
+            fxLayout="column"
+            fxLayoutAlign="stretch stretch">
+
+            <div *ngFor="let item of recommendations.items; let i = index"
+                class="partner-tab"
+                fxFlex="1 1 auto" 
+                fxLayout="row" 
+                [ngClass]="{'active': currentTabActiveIndex === i }"
+                (click)="setActiveTabIndex(i)">
+                <div class="partner-title-image circle">
+                    <img [src]="item.pictures | resolvePreviewImageUrl : './assets/images/news-placeholder.png'" alt="News photo">
+                </div>
+                <div class="partner-title-caption">{{item.title}}</div>
+            </div>
+
+        </div>
+
+        <div class="partners-description-area" 
+            fxLayout="column"
+            fxLayoutAlign="center stretch"
+            [ngStyle]="{'margin-top': getDescriptionTopMagin() + 'px' }">
+
+            <div class="description-section partner-title"
+                fxLayoutAlign="center center">
+                <img [src]="currentRecommendation.pictures | resolvePreviewImageUrl : './assets/images/news-placeholder.png'" alt="News photo">
+            </div>
+
+            <div class="description-section description"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                fxLayoutGap="15px">
+                <div class="text-area"
+                    fxFlex="0 0 40">
+                    <p class="card-description-type1">
+                        {{currentRecommendation.full}}
+                    </p>
+                </div>
+                <div class="text-area"
+                    fxFlex="0 0 40">
+                    <p class="card-description-type1">
+                        {{currentRecommendation.full}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="description-section fade-line"></div>
+
+            <div class="contacts-area"
+                fxFlex
+                fxLayout="row wrap"
+                fxLayoutAlign="center space-evenly"
+                fxLayoutGap="10px">
+
+                <div *ngIf="currentRecommendation.phone" 
+                    fxFlex
+                    fxLayout="columnn" 
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="5px">
+                    <mat-icon>phonelink_ring</mat-icon> 
+                    <span class="value">{{currentRecommendation.phone}}</span>
+                </div>
+                
+                <div *ngIf="currentRecommendation.email"
+                    fxFlex 
+                    fxLayout="columnn" 
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="5px">
+                    <mat-icon>email</mat-icon> 
+                    <span class="value">{{currentRecommendation.email}}</span>
+                </div>
+                
+                <div *ngIf="currentRecommendation.website"
+                    fxFlex
+                    fxLayout="columnn" 
+                    fxLayoutAlign="center center"
+                    fxLayoutGap="5px">
+                    <mat-icon>public</mat-icon>                     
+                    <span class="value">{{currentRecommendation.website}}</span>
+                </div>
+
+            </div>  
+        </div>
+    </div>
+
+    <div *ngIf="recommendations" class="partners-base-accordion" fxHide fxShow.lt-md>
+        <mat-accordion>
+            <mat-expansion-panel 
+                *ngFor="let item of recommendations.items; let i = index"
+                class="mat-card-3-box" togglePosition="after">
+
+                <mat-expansion-panel-header [collapsedHeight]="'80px'" [expandedHeight]="'80px'">
+                    <mat-panel-title class="text-left">
+                        <div class="partner-title-image circle">
+                            <img [src]="item.pictures | resolvePreviewImageUrl : './assets/images/news-placeholder.png'" alt="News photo">
+                        </div>
+                     </mat-panel-title>
+                    <mat-panel-description fxLayoutAlign="start center"> {{item.title}}</mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div class="partners-description-area" fxLayout="column" fxLayoutAlign="center stretch">
+    
+                    <div class="description-section partner-title" fxLayoutAlign="center center">
+                        <img [src]="item.pictures | resolvePreviewImageUrl : './assets/images/news-placeholder.png'" alt="News photo">
+                    </div>
+        
+                    <div class="description-section description" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+                        <div class="text-area" fxFlex="0 0 40">
+                            <p class="card-description-type1"> {{item.full}}</p>
+                        </div>
+                        <div class="text-area" fxFlex="0 0 40">
+                            <p class="card-description-type1"> {{item.full}}</p>
+                        </div>
+                    </div>
+        
+                    <div class="description-section fade-line"></div>
+        
+                    <div class="contacts-area"
+                        fxFlex
+                        fxLayout="row wrap"
+                        fxLayout.lt-sm="column"
+                        fxLayoutAlign="center space-evenly"
+                        fxLayoutAlign.lt-sm="start start"
+                        fxLayoutGap="10px">
+        
+                        <div *ngIf="item.phone"
+                            fxFlex
+                            fxLayout="columnn" 
+                            fxLayoutAlign="center center"
+                            fxLayoutGap="5px">
+                            <mat-icon>phonelink_ring</mat-icon> 
+                            <span class="value">{{item.phone}}</span>
+                        </div>
+                        
+                        <div *ngIf="item.email"
+                            fxFlex
+                            fxLayout="columnn" 
+                            fxLayoutAlign="center center"
+                            fxLayoutGap="5px">
+                            <mat-icon>email</mat-icon> 
+                            <span class="value">{{item.email}}</span>
+                        </div>
+                        
+                        <div *ngIf="item.website"
+                            fxFlex
+                            fxLayout="columnn" 
+                            fxLayoutAlign="center center"
+                            fxLayoutGap="5px">
+                            <mat-icon>public</mat-icon>                     
+                            <span class="value">{{item.website}}</span>
+                        </div>
+        
+                    </div>  
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>   
+    </div>
+    
+</app-base>

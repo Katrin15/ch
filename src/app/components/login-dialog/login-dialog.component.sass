@@ -1,0 +1,95 @@
+.dialog-base
+    .header-area     
+        height: 3em  
+        span.error-content
+            height: 100%
+            width: 100%
+            text-align: center
+
+    .login-signup-area
+        .login-base, .register-base
+            height: 26em
+            padding-top: 15px
+        .register-base
+            .register-header
+                margin: 10px 20px 0px 20px
+                text-align: center
+        .social-login-area
+            text-align: center
+            padding: 15px
+            background: #f3f5f7
+            border-radius: 5px
+            button
+                margin: 0 10px 0 0
+                background: white
+                box-shadow: 0px 5px 10px rgba(21, 40, 74, 0.15)
+        .signup-form
+            overflow: hidden
+            textarea
+                resize: none
+                height: 80px
+
+        .mat-icon
+            &.password-show-hide
+                cursor: pointer
+            &:not(.password-show-hide)
+                color: #5d687214
+
+    .login-signup-controls
+        button
+            height: 45px
+            &.cancel-button
+                width: 40%
+            &.save-button
+                background: #13AF67
+                width: 60%
+                margin-right: 10px
+
+
+.text-separator
+    padding: 20px
+    justify-content: center
+    text-align: center
+
+::ng-deep .mat-dialog-container
+    padding: 20px
+
+::ng-deep .mat-tab-group
+    width: 100%
+
+::ng-deep .mat-button-wrapper
+    padding: 0 !important
+
+::ng-deep .mat-form-field
+    width: 100%
+
+
+.bottom-small-circles
+    width: 100%
+    text-align: center
+    margin-bottom: 10px
+    
+    .small-circles
+        height: 6px
+        width: 6px
+        border-radius: 50%
+        background-color: lightgrey
+        display: inline-flex
+        margin-right: 15px
+        &.active
+            background-color: #1e3922 !important
+    .back-triangle
+        width: 0
+        height: 0
+        border-top: 5px solid transparent
+        border-right: 6px solid lightgrey
+        border-bottom: 5px solid transparent
+        display: inline-flex
+        margin-right: 15px
+        margin-bottom: -2px
+        cursor: pointer
+        &.active
+            border-right: 6px solid green
+
+
+    

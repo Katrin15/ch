@@ -1,0 +1,71 @@
+<app-base>
+    <section class="section">
+      <div class="flex margin-60" fxLayout="row" fxLayout.lt-md="column">
+        <div *ngIf="dietsItem" class="single"  
+             fxFlex="1 1 65" 
+             fxFlex.lt-md="1 1 100">
+
+          <div class="single__content">
+            <div class="single__head">
+              <div class="single__img-wrap">
+                <div *ngIf="dietsItem" class="single__img">
+                    <img *ngIf="dietsItem" [src]="dietsItem.pictures | resolvePreviewImageUrl : './assets/images/edu_path_default_2.jpg'" alt="News photo">
+                </div>
+              </div>
+              <div class="single__info"  fxLayout="row" fxLayoutAlign="space-between none" >
+                <div class="single__date">
+                  {{dietsItem.createdAt | date: "yyyy.MM.dd" }}
+                </div>
+                <div class="single__name" fxLayout="row" *ngIf = "dietsItem.createdBy">
+                  <div class="single__icon"><i class="icon-user-fill"></i></div>
+                  {{dietsItem.createdBy}}
+                </div>
+              </div>
+              <h2 single__title>{{dietsItem.title}}</h2>
+            </div>
+            <div class="single__body">
+              <div class="single__body-info" fxLayout="row" fxLayoutAlign="space-between none"
+                   fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-between flex-start">
+                <ul class="single__icon-list" fxLayout="row">
+                  <li class="single__icon-item">
+                    <i class="icon-heart"></i>
+                    <div class="single__icon-text">
+                      224
+                    </div>
+                  </li>
+                  <li class="single__icon-item">
+                    <i class="icon-eye"></i>
+                    <div class="single__icon-text">
+                      224
+                    </div>
+                  </li>
+                  <li class="single__icon-item">
+                    <div class="single__icon--heart">
+                        <i class="icon-share"></i>
+                    </div>
+
+                  </li>
+                </ul>
+                <!-- <div *ngIf="!dietsItem.is_approved" class="single__btn-wrap"  fxLayout="row" fxLayoutAlign="center center"  >
+                  <a href="#" class="single__btn"> Ожидает публикации </a>
+                </div> -->
+              </div>
+              <div class="single__text">
+                {{dietsItem.preview}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-wrapper"  fxFlex="1 1 30" fxFlex.lt-md="1 1 100">
+            <app-sidebar  [title] = "sidebarTitle">
+              <ul class="sidebar-cards">
+                <li class="sidebar-card" *ngFor = "let item of topNews">
+                    <app-news-diet [item]="item" [route]="'news/' + item.id"></app-news-diet>
+                </li>
+              </ul>
+            </app-sidebar>
+        </div>
+    </div>
+    </section>
+  </app-base>
